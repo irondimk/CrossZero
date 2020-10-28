@@ -17,6 +17,7 @@ start.addEventListener('click', ()=>{
 
     for(let i = 0; i < boxes.length; i++){
         boxes[i].addEventListener('click', stepPlayers);
+        boxes[i].classList.add('move');
 }
     win.innerHTML = "";
 })
@@ -34,6 +35,7 @@ function stepPlayers(){
         player.innerHTML = "крест";
     }
     this.removeEventListener('click', stepPlayers);
+    this.classList.remove('move');
     if(iswin(fromonetwoarr())){
         offbuttons();
     }

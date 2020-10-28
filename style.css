@@ -135,7 +135,7 @@ h6 {
   transform-origin: center;
   text-align: center;
 }
-.squad .box:hover {
+.squad .move:hover {
   transform-origin: center;
   scale: 0.9;
   transition: 1s;

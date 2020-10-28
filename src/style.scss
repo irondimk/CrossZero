@@ -51,6 +51,9 @@
         border-radius: 9px;
         transform-origin: center;
         text-align: center;
+        
+    }
+    .move{
         &:hover{
             transform-origin: center;
             scale:(0.9);
