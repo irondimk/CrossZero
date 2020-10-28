@@ -17,29 +17,47 @@ start.addEventListener('click', ()=>{
     }
 
     for(let i = 0; i < boxes.length; i++){
-        boxes[i].addEventListener('click', () => stepPlayers(i));
+        // boxes[i].addEventListener('click', () => stepPlayers(i));
+        boxes[i].addEventListener('click', stepPlayers);
 }
 })
 
-function stepPlayers(i){
+function stepPlayers(){
 
-        if(step){
-            marks[i].innerHTML = "X";
-            step = 0;
-            player.innerHTML = "ноль";
-            
-        }
-        else{
-            marks[i].innerHTML = "O";
-            step = 1;
-            player.innerHTML = "крест";
-        }
-        if(iswin(fromonetwoarr())){
-            
-            offbuttons();
-        }
-
+    if(step){
+        marks[this.id].innerHTML = "X";
+        step = 0;
+        player.innerHTML = "ноль";
+    }
+    else{
+        marks[this.id].innerHTML = "O";
+        step = 1;
+        player.innerHTML = "крест";
+    }
+    this.removeEventListener('click', stepPlayers);
+    if(iswin(fromonetwoarr())){
+        offbuttons();
+    }
 }
+
+// function stepPlayers(i){
+
+//         if(step){
+//             marks[i].innerHTML = "X";
+//             step = 0;
+//             player.innerHTML = "ноль";
+//         }
+//         else{
+//             marks[i].innerHTML = "O";
+//             step = 1;
+//             player.innerHTML = "крест";
+//         }
+//         this.removeEventListener('click', () => stepPlayers(i));
+//         if(iswin(fromonetwoarr())){
+            
+//             offbuttons();
+//         }
+// }
 
 
 
@@ -122,4 +140,31 @@ function iswin(twoarr){
             }
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let been = document.querySelector('.been');
+been.addEventListener('click', addtext);
+
+
+function addtext(){
+    
+    this.removeEventListener('click', addtext);
 }
