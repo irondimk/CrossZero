@@ -1,6 +1,5 @@
 let start = document.querySelector('.btn');
-
-let boxes = document.querySelectorAll('.parent');
+let boxes = document.querySelectorAll('.box');
 let marks = document.querySelectorAll('.mark');
 let player = document.querySelector('.player');
 let win = document.querySelector('.win');
@@ -17,9 +16,9 @@ start.addEventListener('click', ()=>{
     }
 
     for(let i = 0; i < boxes.length; i++){
-        // boxes[i].addEventListener('click', () => stepPlayers(i));
         boxes[i].addEventListener('click', stepPlayers);
 }
+    win.innerHTML = "";
 })
 
 function stepPlayers(){
@@ -40,30 +39,7 @@ function stepPlayers(){
     }
 }
 
-// function stepPlayers(i){
-
-//         if(step){
-//             marks[i].innerHTML = "X";
-//             step = 0;
-//             player.innerHTML = "ноль";
-//         }
-//         else{
-//             marks[i].innerHTML = "O";
-//             step = 1;
-//             player.innerHTML = "крест";
-//         }
-//         this.removeEventListener('click', () => stepPlayers(i));
-//         if(iswin(fromonetwoarr())){
-            
-//             offbuttons();
-//         }
-// }
-
-
-
-
 function offbuttons(){
-    console.log(999);
     for(let i = 0; i < boxes.length; i++){
         boxes[i].removeEventListener('click', stepPlayers);
 }
@@ -81,7 +57,6 @@ function offbuttons(){
             arr = [];
         }
     }
-    
     return twoarr;
 }
 
@@ -115,6 +90,7 @@ function iswin(twoarr){
             }
         }   
     }
+
     if((twoarr[0][0] === twoarr[1][1]) && (twoarr[1][1] === twoarr[2][2])){
         if(twoarr[0][0] == "X"){
             win.innerHTML = "Победили крестики";
@@ -140,31 +116,4 @@ function iswin(twoarr){
             }
         }
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let been = document.querySelector('.been');
-been.addEventListener('click', addtext);
-
-
-function addtext(){
-    
-    this.removeEventListener('click', addtext);
 }
