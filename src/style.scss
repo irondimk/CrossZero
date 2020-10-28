@@ -1,0 +1,58 @@
+@import "null";
+.content{
+    padding-top: 20px;
+    display: flex;
+    width: 900px;
+    margin: 0 auto;
+    justify-content: space-between;
+    .btn{
+        display: inline-block;
+        background: rgb(148, 16, 71);
+        padding: 5px 15px;
+        color: #ffffff;
+        border-radius: 5px;
+        font-size: 22px;
+        margin-bottom: 30px;
+    &:hover{
+
+    }
+    }
+    p{
+        font-size: 20px;
+    }
+}
+
+.squad{
+    width: 606px;
+    // margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    .parent{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin-left: 1px;
+        margin-right: 1px;
+        margin-bottom: 1px;
+    }
+    .box{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgb(148, 16, 71);
+        border-radius: 9px;
+        transform-origin: center;
+        text-align: center;
+        &:hover{
+            transform-origin: center;
+            scale:(0.9);
+            transition: 1s;
+        }
+    }
+    .mark{
+        font-size: 200px;
+    }
+
+    
+
+}
