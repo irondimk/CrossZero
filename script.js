@@ -6,55 +6,54 @@ let win = document.querySelector('.win');
 let step = 1;
 //step 1 is X, step 0 is O
 
-
-start.addEventListener('click', ()=>{
+start.addEventListener('click', () => {
     step = 1;
     player.innerHTML = "крест";
 
-    for(let a of marks){
+    for (let a of marks) {
         a.innerHTML = "";
     }
 
-    for(let i = 0; i < boxes.length; i++){
+    for (let i = 0; i < boxes.length; i++) {
         boxes[i].addEventListener('click', stepPlayers);
         boxes[i].classList.add('move');
-}
+    }
     win.innerHTML = "";
 })
 
-function stepPlayers(){
+function stepPlayers() {
 
-    if(step){
+    if (step) {
         marks[this.id].innerHTML = "X";
         step = 0;
         player.innerHTML = "ноль";
     }
-    else{
+    else {
         marks[this.id].innerHTML = "O";
         step = 1;
         player.innerHTML = "крест";
     }
     this.removeEventListener('click', stepPlayers);
     this.classList.remove('move');
-    if(iswin(fromonetwoarr())){
+    if (iswin(fromonetwoarr())) {
         offbuttons();
     }
 }
 
-function offbuttons(){
-    for(let i = 0; i < boxes.length; i++){
+function offbuttons() {
+    for (let i = 0; i < boxes.length; i++) {
         boxes[i].removeEventListener('click', stepPlayers);
-}
+    }
 }
 
- function fromonetwoarr(){
+function fromonetwoarr() {
     let twoarr = [];
     let arr = [];
     let mark = 0;
-    for(let i = 0; i < marks.length; i++){
+    for (let i = 0; i < marks.length; i++) {
         arr.push(marks[i].innerHTML);
         mark++;
-        if(mark % 3 == 0){
+        if (mark % 3 == 0) {
             twoarr.push(arr);
             arr = [];
         }
@@ -63,56 +62,56 @@ function offbuttons(){
 }
 
 
-function iswin(twoarr){
-    for(let i = 0; i < 3; i++){ //горизонтальные линии
-        if((twoarr[i][0] === twoarr[i][1]) && (twoarr[i][1] === twoarr[i][2])){
-            if(twoarr[i][0] == "X"){
+function iswin(twoarr) {
+    for (let i = 0; i < 3; i++) { //горизонтальные линии
+        if ((twoarr[i][0] === twoarr[i][1]) && (twoarr[i][1] === twoarr[i][2])) {
+            if (twoarr[i][0] == "X") {
                 win.innerHTML = "Победили крестики";
                 return true;
             }
-            else{
-                if(twoarr[i][0] == "O"){
+            else {
+                if (twoarr[i][0] == "O") {
                     win.innerHTML = "Победили нолики";
                     return true;
                 }
             }
-        }   
+        }
     }
-    for(let i = 0; i < 3; i++){ //вертикальные линии
-        if((twoarr[0][i] === twoarr[1][i]) && (twoarr[1][i] === twoarr[2][i])){
-            if(twoarr[0][i] == "X"){
+    for (let i = 0; i < 3; i++) { //вертикальные линии
+        if ((twoarr[0][i] === twoarr[1][i]) && (twoarr[1][i] === twoarr[2][i])) {
+            if (twoarr[0][i] == "X") {
                 win.innerHTML = "Победили крестики";
                 return true;
             }
-            else{
-                if(twoarr[0][i] == "O"){
+            else {
+                if (twoarr[0][i] == "O") {
                     win.innerHTML = "Победили нолики";
                     return true;
                 }
             }
-        }   
+        }
     }
 
-    if((twoarr[0][0] === twoarr[1][1]) && (twoarr[1][1] === twoarr[2][2])){
-        if(twoarr[0][0] == "X"){
+    if ((twoarr[0][0] === twoarr[1][1]) && (twoarr[1][1] === twoarr[2][2])) {
+        if (twoarr[0][0] == "X") {
             win.innerHTML = "Победили крестики";
             return true;
         }
-        else{
-            if(twoarr[0][0] == "O"){
+        else {
+            if (twoarr[0][0] == "O") {
                 win.innerHTML = "Победили нолики";
                 return true;
             }
         }
     }
 
-    if((twoarr[0][2] === twoarr[1][1]) && (twoarr[1][1] === twoarr[2][0])){
-        if(twoarr[0][2] == "X"){
+    if ((twoarr[0][2] === twoarr[1][1]) && (twoarr[1][1] === twoarr[2][0])) {
+        if (twoarr[0][2] == "X") {
             win.innerHTML = "Победили крестики";
             return true;
         }
-        else{
-            if(twoarr[0][2] == "O"){
+        else {
+            if (twoarr[0][2] == "O") {
                 win.innerHTML = "Победили нолики";
                 return true;
             }
