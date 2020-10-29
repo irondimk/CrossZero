@@ -58,9 +58,20 @@
         }
     }
     .mark{
+        display: none;
         font-size: 200px;
     }
+    .circle{
+        margin-top: 19px;
+        width: 160px;
+    }
+    .cross{
+        margin-top: 13px;
+        width: 180px;
+    }
 
-    
+}
 
+.secret{
+    display: none;
 }

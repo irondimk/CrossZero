@@ -14,6 +14,12 @@ start.addEventListener('click', () => {
         a.innerHTML = "";
     }
 
+    let figures = document.querySelectorAll('.figure');
+    for(let a of figures){
+        a.remove();
+    }
+
+
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].addEventListener('click', stepPlayers);
         boxes[i].classList.add('move');
@@ -21,14 +27,41 @@ start.addEventListener('click', () => {
     win.innerHTML = "";
 })
 
+
+
+
+
+
+
+
+// boxes[0].append(circle);
+// boxes[1].append(cross);
+
+function createCross(){
+    let cross = document.createElement('img');
+    cross.classList.add("cross","figure");
+   
+    cross.src = "img/cross.png";
+    return cross;
+}
+
+function createCircle(){
+    let circle = document.createElement('img');
+    circle.classList.add("circle","figure");
+    circle.src = "img/circle.png";
+    return circle;
+}
+
 function stepPlayers() {
 
     if (step) {
+        this.append(createCross());
         marks[this.id].innerHTML = "X";
         step = 0;
         player.innerHTML = "ноль";
     }
     else {
+        this.append(createCircle());
         marks[this.id].innerHTML = "O";
         step = 1;
         player.innerHTML = "крест";
@@ -118,3 +151,6 @@ function iswin(twoarr) {
         }
     }
 }
+
+
+

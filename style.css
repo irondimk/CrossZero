@@ -142,5 +142,18 @@ h6 {
   transition: 1s;
 }
 .squad .mark {
+  display: none;
   font-size: 200px;
+}
+.squad .circle {
+  margin-top: 19px;
+  width: 160px;
+}
+.squad .cross {
+  margin-top: 13px;
+  width: 180px;
+}
+
+.secret {
+  display: none;
 }
